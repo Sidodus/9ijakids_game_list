@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/9ijakids_game_list/static/css/main.d317170c.chunk.css",
+    "main.js": "/9ijakids_game_list/static/js/main.d5e1aab4.chunk.js",
+    "main.js.map": "/9ijakids_game_list/static/js/main.d5e1aab4.chunk.js.map",
+    "runtime-main.js": "/9ijakids_game_list/static/js/runtime-main.4ca91e4e.js",
+    "runtime-main.js.map": "/9ijakids_game_list/static/js/runtime-main.4ca91e4e.js.map",
+    "static/css/2.4f8976c6.chunk.css": "/9ijakids_game_list/static/css/2.4f8976c6.chunk.css",
+    "static/js/2.b2982668.chunk.js": "/9ijakids_game_list/static/js/2.b2982668.chunk.js",
+    "static/js/2.b2982668.chunk.js.map": "/9ijakids_game_list/static/js/2.b2982668.chunk.js.map",
+    "static/js/3.6205acfc.chunk.js": "/9ijakids_game_list/static/js/3.6205acfc.chunk.js",
+    "static/js/3.6205acfc.chunk.js.map": "/9ijakids_game_list/static/js/3.6205acfc.chunk.js.map",
+    "index.html": "/9ijakids_game_list/index.html",
+    "service-worker.js": "/9ijakids_game_list/service-worker.js",
+    "service-worker.js.map": "/9ijakids_game_list/service-worker.js.map",
+    "static/css/2.4f8976c6.chunk.css.map": "/9ijakids_game_list/static/css/2.4f8976c6.chunk.css.map",
+    "static/css/main.d317170c.chunk.css.map": "/9ijakids_game_list/static/css/main.d317170c.chunk.css.map",
+    "static/js/2.b2982668.chunk.js.LICENSE.txt": "/9ijakids_game_list/static/js/2.b2982668.chunk.js.LICENSE.txt",
+    "static/media/naijaKids_logo.d3338653.png": "/9ijakids_game_list/static/media/naijaKids_logo.d3338653.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ca91e4e.js",
+    "static/css/2.4f8976c6.chunk.css",
+    "static/js/2.b2982668.chunk.js",
+    "static/css/main.d317170c.chunk.css",
+    "static/js/main.d5e1aab4.chunk.js"
+  ]
+}

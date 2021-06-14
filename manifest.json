@@ -1,0 +1,59 @@
+{
+  "short_name": "9ijakids Game List",
+  "name": "9ijakids Game List Catalog Sample",
+  "icons": [
+    {
+      "src": "naijaKids_logo.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo.png",
+      "sizes": "24x24",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo-512x512.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "naijaKids_logo-512x512.png",
+      "type": "image/png",
+      "sizes": "1118x605",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "https://sidodus.github.io/9ijakids_game_list",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#e3f2fd",
+  "scope": "/"
+}
