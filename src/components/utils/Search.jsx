@@ -1,37 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  searchGame,
-  filteredSearchedGames,
-} from "../../actions/naijaGameActions";
+import { filterGame, searchGame } from "../../actions/naijaGameActions";
 
 class Search extends Component {
   state = {
     initialGames: [],
-    searchedGames: [],
-    searchValue: "",
   };
 
-  componentDidUpdate() {
-    this.props.filteredSearchedGames(this.state.searchedGames);
-  }
-
   static getDerivedStateFromProps = (props, state) => {
-    props.searchGame(state.searchedGames, state.searchValue);
-
-    if (state.searchedGames.length === 0) {
-      return {
-        initialGames: props.games,
-        searchedGames: [],
-      };
-    } else {
-      sessionStorage.setItem(
-        "compiledFilteredSearched",
-        JSON.stringify(state.searchedGames)
-      );
-    }
-    return {};
+    return {
+      initialGames: props.games,
+    };
   };
 
   searchList = (e) => {
@@ -44,7 +24,8 @@ class Search extends Component {
         e.target.value.toLowerCase()
       );
     });
-    this.setState({ searchedGames: currentItems, searchValue: e.target.value });
+    this.props.filterGame(currentItems, e.target.value);
+    this.props.searchGame(currentItems, e.target.value);
   };
 
   render() {
@@ -64,9 +45,9 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  searchGame: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
-  filteredSearchedGames: PropTypes.func,
+  filterGame: PropTypes.func.isRequired,
+  searchGame: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -74,6 +55,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
+  filterGame,
   searchGame,
-  filteredSearchedGames,
 })(Search);

@@ -2,14 +2,12 @@ import {
   GET_9IJA_KIDS,
   FILTER_GAME,
   SEARCH_GAME,
-  FILTERED_SEARCHED_GAMES,
 } from "../actions/types";
 
 const initialState = {
   games: [],
   filter: [],
   currentSearch: [],
-  filteredSearch: [],
 };
 
 export default function naijaKidsReducer(state = initialState, action) {
@@ -28,11 +26,6 @@ export default function naijaKidsReducer(state = initialState, action) {
       return {
         ...state,
         currentSearch: action.payload,
-      };
-    case FILTERED_SEARCHED_GAMES:
-      return {
-        ...state,
-        filteredSearch: action.payload,
       };
     default:
       return state;

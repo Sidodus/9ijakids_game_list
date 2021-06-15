@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 import reportWebVitals from "./reportWebVitals";
 
 import { desktopPwa } from "./components/utils/desktopPwa";

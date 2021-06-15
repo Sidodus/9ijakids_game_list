@@ -1,9 +1,4 @@
-import {
-  GET_9IJA_KIDS,
-  FILTER_GAME,
-  SEARCH_GAME,
-  FILTERED_SEARCHED_GAMES,
-} from "./types";
+import { GET_9IJA_KIDS, FILTER_GAME, SEARCH_GAME } from "./types";
 // import axios from "axios";
 
 import * as res from "../Api.json";
@@ -39,12 +34,5 @@ export const searchGame = (searchedGames, searchStr) => (dispatch) => {
   dispatch({
     type: SEARCH_GAME,
     payload: [searchedGames, searchStr],
-  });
-};
-
-export const filteredSearchedGames = (filteredSearch) => (dispatch) => {
-  dispatch({
-    type: FILTERED_SEARCHED_GAMES,
-    payload: filteredSearch,
   });
 };

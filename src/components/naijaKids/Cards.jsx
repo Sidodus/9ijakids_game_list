@@ -15,10 +15,8 @@ import { fetchApi } from "../../actions/naijaGameActions";
 class Cards extends Component {
   state = {
     gameList: [],
-    combineSearchFilter: [],
     filteredSearch: [],
     compiledSearchedGames: [],
-    searchNotFound: false,
   };
 
   static getDerivedStateFromProps = (props, state) => {
@@ -26,37 +24,45 @@ class Cards extends Component {
     if (state.gameList.length === 0) {
       props.fetchApi();
       state.compiledSearchedGames = props.games;
-      sessionStorage.setItem("9ijaKids", JSON.stringify(props.games));
+      state.filteredSearch = props.filterProps[0];
     }
 
     // Render For Search
-    if (props.currentSearchedGames.length !== 0) {
-      state.gameList = props.currentSearchedGames;
-      state.combineSearchFilter = props.currentSearchedGames;
-      document.getElementById("searchNotFound").style.display = "none";
-      state.searchNotFound = false;
-    } else if (
-      props.currentSearchedGames.length === 0 &&
-      props.currentSearchValue.length > 0
-    ) {
-      state.gameList = props.currentSearchedGames;
-      state.combineSearchFilter = props.currentSearchedGames;
-      document.getElementById("searchNotFound").style.display = "block";
-      state.searchNotFound = true;
+    if (props.currentSearchedGames.length > 0) {
+      if (
+        props.currentSearchedGames[0].length > 0 &&
+        props.currentSearchedGames[1].length > 0
+      ) {
+        document.getElementById("searchNotFound").style.display = "none";
+      } else if (
+        props.currentSearchedGames[0].length > 0 &&
+        props.currentSearchedGames[1].length === 0
+      ) {
+        document.getElementById("searchNotFound").style.display = "none";
+      } else {
+        document.getElementById("searchNotFound").style.display = "block";
+      }
     }
+    // Hide Search Not Found When Select (filter) BTN Is Clicked
+    if (props.filterProps.length > 0) {
+      if (props.filterProps[0].length > 0) {
+        if (props.currentSearchedGames.length > 0) {
+          if (props.currentSearchedGames[0].length === 0) {
+            document.getElementById("searchNotFound").style.display = "none";
+          }
+        }
+      }
+    }
+
     return {};
   };
 
   render() {
-    let renderCompiledSearchGames;
-
-    if (
-      this.props.filteredSearch.length === 0 &&
-      this.state.searchNotFound === false
-    ) {
-      renderCompiledSearchGames = this.state.compiledSearchedGames;
+    let mapper;
+    if (this.state.filteredSearch === undefined) {
+      mapper = this.state.compiledSearchedGames;
     } else {
-      renderCompiledSearchGames = this.props.filteredSearch;
+      mapper = this.state.filteredSearch;
     }
 
     let keyCounter = 0;
@@ -71,7 +77,6 @@ class Cards extends Component {
     //   exploringLife.default,
     //   MathsmaniaCityDecimals.default,
     // ];
-
     return (
       <React.Fragment>
         <div
@@ -84,7 +89,7 @@ class Cards extends Component {
           </div>
         </div>
         <div className="card-group">
-          {renderCompiledSearchGames.map((data) => (
+          {mapper.map((data) => (
             <div className="col-md-4 my-2 px-2" key={keyCounter++}>
               <div className="card bg-secondary">
                 <div className="card-body">
@@ -111,16 +116,14 @@ class Cards extends Component {
 Cards.propType = {
   fetchApi: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
-  currentSearchedGames: PropTypes.array,
-  currentSearchValue: PropTypes.string,
-  filteredSearch: PropTypes.array,
+  filterProps: PropTypes.array.isRequired,
+  currentSearchedGames: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   games: state.naijaKids.games,
-  currentSearchedGames: state.naijaKids.currentSearch[0],
-  currentSearchValue: state.naijaKids.currentSearch[1],
-  filteredSearch: state.naijaKids.filteredSearch,
+  filterProps: state.naijaKids.filter,
+  currentSearchedGames: state.naijaKids.currentSearch,
 });
 
 export default connect(mapStateToProps, {
