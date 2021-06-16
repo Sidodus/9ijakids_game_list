@@ -3,9 +3,7 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 
-import NavBar from "./components/layouts/NavBar";
-import Footer from "./components/layouts/Footer";
-import BodyCard from "./components/naijaKids/BodyCard";
+import NaijaKids from "./components/naijaKids/NaijaKids";
 
 import "./App.css";
 
@@ -13,9 +11,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <NavBar />
-        <BodyCard />
-        <Footer />
+        <NaijaKids />
       </Provider>
     );
   }

@@ -18,7 +18,6 @@ class Filter extends Component {
   }
 
   filterList = (e) => {
-    console.log("Selected:", e.target.value);
     document.getElementById("searchInput").value = "";
 
     let { initialGames } = this.state;
@@ -104,7 +103,6 @@ Filter.propType = {
 
 const mapStateToProps = (state) => ({
   games: state.naijaKids.games,
-  reRenderSelectBtn: state.naijaKids.resetSelectBtn,
 });
 
 export default connect(mapStateToProps, {

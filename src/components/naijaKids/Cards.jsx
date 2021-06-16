@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { fetchApi } from "../../actions/naijaGameActions";
-
 // import * as BeforeAndAfter from "../../GameImage/Before and After.png";
 // import * as communication from "../../GameImage/Communication.png";
 // import * as exploringLife from "../../GameImage/Exploring Life.png";
@@ -22,7 +20,7 @@ class Cards extends Component {
   static getDerivedStateFromProps = (props, state) => {
     // Init
     if (state.gameList.length === 0) {
-      props.fetchApi();
+      // props.fetchApi();
       state.compiledSearchedGames = props.games;
       state.filteredSearch = props.filterProps[0];
     }
@@ -114,7 +112,6 @@ class Cards extends Component {
 }
 
 Cards.propType = {
-  fetchApi: PropTypes.func.isRequired,
   games: PropTypes.array.isRequired,
   filterProps: PropTypes.array.isRequired,
   currentSearchedGames: PropTypes.array.isRequired,
@@ -126,6 +123,4 @@ const mapStateToProps = (state) => ({
   currentSearchedGames: state.naijaKids.currentSearch,
 });
 
-export default connect(mapStateToProps, {
-  fetchApi,
-})(Cards);
+export default connect(mapStateToProps, {})(Cards);
